@@ -56,7 +56,7 @@ test('post order with incorrect data should receive code 400', async ({ request 
   // prepare request body
   const requestBody = {
     status: 'OP',
-    courierId: "0",
+    courierId: '0',
     customerName: 'string',
     customerPhone: 'string',
     comment: 'string',
