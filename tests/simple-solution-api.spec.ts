@@ -51,3 +51,22 @@ test('post order with correct data should receive code 201', async ({ request })
   console.log('response body:', await response.json())
   expect(response.status()).toBe(StatusCodes.OK)
 })
+
+test('post order with incorrect data should receive code 400', async ({ request }) => {
+  // prepare request body
+  const requestBody = {
+    status: 'OP',
+    courierId: "0",
+    customerName: 'string',
+    customerPhone: 'string',
+    comment: 'string',
+  }
+  // Send a POST request to the server
+  const response = await request.post('https://backend.tallinn-learning.ee/test-orders', {
+    data: requestBody,
+  })
+  // Log the response status and body
+  console.log('response status:', response.status())
+  console.log('response body:', await response.text())
+  expect(response.status()).toBe(StatusCodes.BAD_REQUEST)
+})
