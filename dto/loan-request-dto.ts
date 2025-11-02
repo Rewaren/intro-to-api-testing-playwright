@@ -23,15 +23,15 @@ export class LoanRequestDto {
   }
 
   static createLowRiskRequest(): LoanRequestDto {
-    return new LoanRequestDto(1500, 0, 25, true, 2000, 18)
+    return new LoanRequestDto(2000, 0, 30, true, 500, 12)
   }
 
   static createMediumRiskRequest(): LoanRequestDto {
-    return new LoanRequestDto(20000, 0, 30, true, 500, 9)
+    return new LoanRequestDto(2000, 0, 30, true, 500, 9)
   }
 
   static createHighRiskRequest(): LoanRequestDto {
-    return new LoanRequestDto(1500, 1000, 20, true, 5000, 3)
+    return new LoanRequestDto(2000, 0, 20, true, 500, 3)
   }
 
   static createInsufficientIncomeRequest(): LoanRequestDto {
@@ -47,11 +47,11 @@ export class LoanRequestDto {
   }
 
   static createInvalidEmploymentStatusRequest(): LoanRequestDto {
-    return new LoanRequestDto(1500, 1000, 20, false, 5000, 7)
+    return new LoanRequestDto(200, 0, 20, false, 500, 12)
   }
 
   static createMinimumAgeRequirementRequest(): LoanRequestDto {
-    return new LoanRequestDto(1500, 1000, 18, true, 5000, 7)
+    return new LoanRequestDto(1500, 1000, 16, true, 5000, 7)
   }
 
   static createInvalidLoanAmountRequest(): LoanRequestDto {

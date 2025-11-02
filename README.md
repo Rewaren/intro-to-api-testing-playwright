@@ -29,9 +29,9 @@
 | POST - Submit loan application with Medium risk level         | Positive |
 | POST - Submit loan application with High risk level           | Positive |
 | POST - Submit loan application with insufficient income       | Negative |
-| POST - Submit loan application with high loan amount          | Positive |
-| POST - Submit loan application with very short loan period    | Negative |
-| POST - Submit loan application with invalid employment status | Negative |
+| POST - Submit loan application with high loan amount          | Negative |
+| POST - Submit loan application with very short loan period    | Positive |
+| POST - Submit loan application with income and unemployment status | Negative |
 | POST - Submit loan application with minimum age requirement   | Positive |
 | POST - Submit loan application with invalid loan amount       | Negative |
 | POST - Submit loan application with zero income but employed  | Negative |
