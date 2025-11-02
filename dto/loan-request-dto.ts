@@ -23,7 +23,7 @@ export class LoanRequestDto {
   }
 
   static createLowRiskRequest(): LoanRequestDto {
-    return new LoanRequestDto(1500, 0, 25, true, 2000, 30)
+    return new LoanRequestDto(1500, 0, 25, true, 2000, 18)
   }
 
   static createMediumRiskRequest(): LoanRequestDto {
