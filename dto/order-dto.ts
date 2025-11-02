@@ -22,7 +22,7 @@ export class OrderDto{
     this.id = id
   }
   // add a method to create a new instance with random data
-  static createOrderWithLowPriority(): OrderDto {
+  static createOpenOrderWithLowPriority(): OrderDto {
     return new OrderDto(
       'OPEN',
       0,
