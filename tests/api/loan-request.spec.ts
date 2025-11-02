@@ -1,11 +1,14 @@
 import { expect, test } from '@playwright/test'
 import { StatusCodes } from 'http-status-codes'
-import { LoanRequestDto } from '../dto/loan-request-dto'
+import { LoanRequestDto } from '../../dto/loan-request-dto'
 
-test('POST - Submit loan application with Low risk level, should return 200', async ({ request }) => {
+test('POST - Submit loan application with Low risk level, should return 200', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createLowRiskRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )
@@ -21,10 +24,13 @@ test('POST - Submit loan application with Low risk level, should return 200', as
   console.log('response body:', await responseBody)
 })
 
-test('POST - Submit loan application with Medium risk level, should return 200', async ({ request }) => {
+test('POST - Submit loan application with Medium risk level, should return 200', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createMediumRiskRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )
@@ -41,10 +47,13 @@ test('POST - Submit loan application with Medium risk level, should return 200',
   console.log('response body:', responseBody)
 })
 
-test('POST - Submit loan application with High risk level, should return 200', async ({ request }) => {
+test('POST - Submit loan application with High risk level, should return 200', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createHighRiskRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )
@@ -53,7 +62,7 @@ test('POST - Submit loan application with High risk level, should return 200', a
   const responseBody = await response.json()
   expect.soft(responseBody.riskScore).toBeDefined()
   expect.soft(responseBody.riskLevel).toBe('High Risk')
-  expect.soft(responseBody.riskPeriods).toEqual([ 3, 6 ])
+  expect.soft(responseBody.riskPeriods).toEqual([3, 6])
   expect.soft(responseBody.applicationId).toBeDefined()
   expect.soft(responseBody.riskDecision).toBe('positive')
 
@@ -61,10 +70,13 @@ test('POST - Submit loan application with High risk level, should return 200', a
   console.log('response body:', responseBody)
 })
 
-test('POST - Submit loan application with insufficient income, should return 400', async ({ request }) => {
+test('POST - Submit loan application with insufficient income, should return 400', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createInsufficientIncomeRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )
@@ -79,10 +91,13 @@ test('POST - Submit loan application with insufficient income, should return 400
   console.log('response body:', responseText)
 })
 
-test('POST - Submit loan application with high loan amount, should return 200', async ({ request }) => {
+test('POST - Submit loan application with high loan amount, should return 200', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createHighLoanAmountRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )
@@ -99,10 +114,13 @@ test('POST - Submit loan application with high loan amount, should return 200', 
   console.log('response body:', responseBody)
 })
 
-test('POST - Submit loan application with very short loan period, should return 200', async ({ request }) => {
+test('POST - Submit loan application with very short loan period, should return 200', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createVeryShortLoanPeriodRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )
@@ -119,10 +137,13 @@ test('POST - Submit loan application with very short loan period, should return 
   console.log('response body:', responseBody)
 })
 
-test('POST - Submit loan application with income and unemployment status, should return 200', async ({ request }) => {
+test('POST - Submit loan application with income and unemployment status, should return 200', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createInvalidEmploymentStatusRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )
@@ -139,10 +160,13 @@ test('POST - Submit loan application with income and unemployment status, should
   console.log('response body:', responseBody)
 })
 
-test('POST - Submit loan application with minimum age requirement, should return 200', async ({ request }) => {
+test('POST - Submit loan application with minimum age requirement, should return 200', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createMinimumAgeRequirementRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )
@@ -159,10 +183,13 @@ test('POST - Submit loan application with minimum age requirement, should return
   console.log('response body:', responseBody)
 })
 
-test('POST - Submit loan application with invalid loan amount, should return 400', async ({ request }) => {
+test('POST - Submit loan application with invalid loan amount, should return 400', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createInvalidLoanAmountRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )
@@ -177,10 +204,13 @@ test('POST - Submit loan application with invalid loan amount, should return 400
   console.log('response body:', responseText)
 })
 
-test('POST - Submit loan application with zero income but employed, should return 400', async ({ request }) => {
+test('POST - Submit loan application with zero income but employed, should return 400', async ({
+  request,
+}) => {
   const requestBody = LoanRequestDto.createZeroIncomeButEmployedRequest()
   const response = await request.post(
-    'https://backend.tallinn-learning.ee/api/loan-calc/decision', {
+    'https://backend.tallinn-learning.ee/api/loan-calc/decision',
+    {
       data: requestBody,
     },
   )

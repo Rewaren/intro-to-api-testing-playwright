@@ -61,5 +61,4 @@ export class LoanRequestDto {
   static createZeroIncomeButEmployedRequest(): LoanRequestDto {
     return new LoanRequestDto(0, 0, 20, true, 5000, 7)
   }
-
 }
