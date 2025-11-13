@@ -2,7 +2,6 @@ import { expect, test } from '@playwright/test'
 import { StatusCodes } from 'http-status-codes'
 import { LoginDto } from '../../dto/login-dto'
 
-
 test('should return token with correct username and password', async ({ request }) => {
   // prepare request body
   //const requestBody = new LoginDto('reginawk', 'whe7s5qbYbfT2n')
