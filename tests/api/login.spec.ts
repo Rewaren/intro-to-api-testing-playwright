@@ -13,6 +13,7 @@ test('should return token with correct username and password', async ({ request 
   })
   // Log the response status and body
   console.log('response body and token:', await response.text())
+  console.log('Response status:', response.status())
   expect(response.status()).toBe(StatusCodes.OK)
 })
 
