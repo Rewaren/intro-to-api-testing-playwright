@@ -4,8 +4,8 @@ import { LoginDto } from '../../dto/login-dto'
 
 test('should return token with correct username and password', async ({ request }) => {
   // prepare request body
-  //const requestBody = new LoginDto('reginawk', 'whe7s5qbYbfT2n')
-  const requestBody = LoginDto.createLoginDto()
+  const requestBody = new LoginDto('reginawk', 'whe7s5qbYbfT2n')
+  //const requestBody = LoginDto.createLoginDto()
 
   // Send a POST request to the server
   const response = await request.post('https://backend.tallinn-learning.ee/login/student', {
